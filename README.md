@@ -24,6 +24,8 @@ uint16_t ChecksumFromCallback(Crc16ReadByteFunc readByte, int size);
 ```
 
 ## 测试
+测试框架使用的是[适合于嵌入式系统的C语言单元测试框架:Scunit](https://blog.csdn.net/jdh99/article/details/100183066)
+
 ```c
 #include <stdio.h>
 #include "crc16.h"
