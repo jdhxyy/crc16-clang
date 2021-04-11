@@ -5,7 +5,7 @@
 
 ## 开源
 - [github上的项目地址](https://github.com/jdhxyy/crc16-clang)
-- [gitee上的项目地址](https://github.com/jdhxyy/crc16-clang)
+- [gitee上的项目地址](https://gitee.com/jdhxyy/crc16-clang)
 
 ## API
 ```c
