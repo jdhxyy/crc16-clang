@@ -16,16 +16,16 @@ int main() {
 
 static void testCheckSum(void) {
     uint8_t arr1[] = {1, 2, 3};
-    uint16_t crc = Checksum(arr1, 3);
+    uint16_t crc = Crc16Checksum(arr1, 3);
     ScunitAssert(crc == 0x6161, "1");
 
     uint8_t arr2[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-    crc = Checksum(arr2, 9);
+    crc = Crc16Checksum(arr2, 9);
     ScunitAssert(crc == 0x0eb2, "2");
 }
 
 static void testCheckSumFromCallback(void) {
-    uint16_t crc = ChecksumFromCallback(readData, 9);
+    uint16_t crc = Crc16ChecksumFromCallback(readData, 9);
     ScunitAssert(crc == 0x0eb2, "2");
 }
 

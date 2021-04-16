@@ -12,15 +12,15 @@
 // Crc16ReadByteFunc read byte for crc16 calculate
 typedef uint8_t (*Crc16ReadByteFunc)(int offset);
 
-// Checksum check sum.Module is CRC-16/MODBUS,polynomial is 8005
+// Crc16Checksum check sum.Module is CRC-16/MODBUS,polynomial is 8005
 // return value is MSB
-uint16_t Checksum(uint8_t* bytes, int size);
+uint16_t Crc16Checksum(uint8_t* bytes, int size);
 
-// ChecksumFromCallback check sum,read data from callback function then calculate
+// Crc16ChecksumFromCallback check sum,read data from callback function then calculate
 // This function can use calculate crc when data in flash or file
 // Module is CRC-16/MODBUS,polynomial is 8005
 // return value is MSB
-uint16_t ChecksumFromCallback(Crc16ReadByteFunc readByte, int size);
+uint16_t Crc16ChecksumFromCallback(Crc16ReadByteFunc readByte, int size);
 ```
 
 ## 测试
@@ -45,16 +45,16 @@ int main() {
 
 static void testCheckSum(void) {
     uint8_t arr1[] = {1, 2, 3};
-    uint16_t crc = Checksum(arr1, 3);
+    uint16_t crc = Crc16Checksum(arr1, 3);
     ScunitAssert(crc == 0x6161, "1");
 
     uint8_t arr2[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-    crc = Checksum(arr2, 9);
+    crc = Crc16Checksum(arr2, 9);
     ScunitAssert(crc == 0x0eb2, "2");
 }
 
 static void testCheckSumFromCallback(void) {
-    uint16_t crc = ChecksumFromCallback(readData, 9);
+    uint16_t crc = Crc16ChecksumFromCallback(readData, 9);
     ScunitAssert(crc == 0x0eb2, "2");
 }
 
